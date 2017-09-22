@@ -13,12 +13,17 @@ def main():
         
     while answer:
         guess = input("Can you guess what animal I'm thinking of?\n"
-                      "Enter Animal: ")
-
+                      "Enter Animal: ").lower()
+        
         if guess == animal:
             answer = False
             print("Wow, you got it.")
+            
+        elif guess == "quit":
+            answer = False
+            print("Thanks for playing.")
+
         else:
-            print("Incorrect.. Try Again")
+            print("Incorrect.. Try Again\n")
 main()
     
