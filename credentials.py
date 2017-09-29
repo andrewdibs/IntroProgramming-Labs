@@ -9,8 +9,8 @@ def main():
     
     def getName():
          
-        first = input("Enter your first name: ")
-        last = input("Enter your last name: ")
+        first = input("Enter your first name: ").lower()
+        last = input("Enter your last name: ").lower()
         name = [first, last]
 
         return name
@@ -24,14 +24,24 @@ def main():
         return uname
 
     userName = getUserName()
+    
+    
+    def checkStrength(password):
+        tmpPass = password.lower()
 
+        if len(password) < 8 or password == tmpPass:
+            return False
+
+        return True
     
     def setPassword():
         while True:
             passwd = input("Create a new password: ")
             print("Fool of a Took! That password is feeble!")
-        
-            if len(passwd) >= 8:
+            
+            strength = checkStrength(passwd)
+
+            if strength:
                 print("The force is strong in this one…")
                 break
 
@@ -39,7 +49,9 @@ def main():
             
     password = setPassword()
 
-    print("Account configured. Your new email address is",
+   
+
+    print("\nAccount configured. Your new email address is",
                 userName + "@marist.edu")
 
     
