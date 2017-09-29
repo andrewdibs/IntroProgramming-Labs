@@ -7,22 +7,36 @@ def main():
 
     # get user's first and last names
     
+    def getName():
+         
+        first = input("Enter your first name: ")
+        last = input("Enter your last name: ")
+        name = [first, last]
 
-    first = input("Enter your first name: ")
-    last = input("Enter your last name: ")
+        return name
+    
+    nameList = getName()
     
 # TODO modify this to generate a Marist-style username
-    uname = first + last
+    def getUserName():
+        uname = nameList[0]+"."+ nameList[1] + "@marist.edu"
+
+        return uname
+    userName = getUserName()
+
+    print(userName)
     
 # ask user to create a new password
-    passwd = input("Create a new password: ")
+    #passwd = input("Create a new password: ")
     
 # TODO modify this to ensure the password has at least 8 characters
-    while False:
-        print("Fool of a Took! That password is feeble!")
-        passwd = input("Create a new password: ")
-    print("The force is strong in this one…")
+    #while False:
+     #   print("Fool of a Took! That password is feeble!")
+      #  passwd = input("Create a new password: ")
+   # print("The force is strong in this one…")
         
-    print("Account configured. Your new email address is",
-                uname + "@marist.edu")
+    #print("Account configured. Your new email address is",
+     #           uname + "@marist.edu")
+
+    
 main()
