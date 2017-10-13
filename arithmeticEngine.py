@@ -33,11 +33,25 @@ def getOperation():
 
 def getInput():
     nums = []
-    nums.append(int(input("Please enter first number: ")))
-    nums.append(int(input("Please enter second number: ")))
+    while True:
+        try:
+            nums.append(int(input("Please enter first number: ")))
+            nums.append(int(input("Please enter second number: ")))
+            
+            break
 
+        except:
+            print("Invalid number...\n")
+
+        
+
+        
+            
+    
     return nums
 
+def showEnding():
+    print("Thanks for using the Arithmetic Engine.")
 
 
 showIntro()
@@ -52,6 +66,21 @@ while True:
 
     elif operation == "subtract":
         print("Result = ",numbers[0] - numbers[1],"\n\n")
+
+    elif operation == "multiply":
+        print("Result = " , numbers[0]* numbers[1] , "\n\n")
+
+    elif operation == "divide":
+        print("Result = ", numbers[0] / numbers[1] , "\n\n")
+
+    elif operation == "quit":
+        print("Thanks for using the Arithmetic Engine")
+        quit()
+
+    else:
+        print("Invalid Command")
+        quit()
+        
 
 
 
