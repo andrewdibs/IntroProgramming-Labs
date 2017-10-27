@@ -34,6 +34,8 @@ def markBoard(board, row, col, player):
 
     if board[row][col] == 0 :
         board[row][col] = mark
+        return True
+    return False
 
         
  # if so, set it to the player number
@@ -54,6 +56,16 @@ def hasBlanks(board):
 
     return False
 
+def checkRow(board, player):
+    count = 0
+    for row in board:
+        for mark in row:
+            if mark == player:
+                count += 1
+    if count ==3 :
+        return True
+    return False
+
 def main():
     board = [[0, 0, 0]
             ,[0, 0, 0]
@@ -64,6 +76,11 @@ def main():
 
         printBoard(board)
         row,col = getPlayerMove()
-        markBoard(board,row,col,player)
-        player = player % 2 + 1 # switch player for next turn
+        success = markBoard(board,row,col,player)
+        if success:
+            player = player % 2 + 1 # switch player for next turn
+        if checkRow(board, 1):
+            print("Player 1 WINS!")
+            break
+            
 main()
