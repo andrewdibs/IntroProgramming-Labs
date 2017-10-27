@@ -9,7 +9,10 @@ def printRow(row):
     
     output = "|"
     for x in row:
-        output += str(x) + "|"
+        if x == 0:
+            output += " " +"|"
+        else:
+            output += str(x) + "|"
     print(output)
     
 
@@ -22,8 +25,15 @@ def printBoard(board):
         
 def markBoard(board, row, col, player):
  # check to see whether the desired square is blank
+    global symbol 
+    if player == 1:
+        mark = symbol[1]
+    elif player == 2:
+        mark = symbol[2]
+    
+
     if board[row][col] == 0 :
-        board[row][col] = player
+        board[row][col] = mark
 
         
  # if so, set it to the player number
@@ -31,8 +41,9 @@ def markBoard(board, row, col, player):
 
 
 def getPlayerMove():
-    input("") # prompt the user separately for the row and column numbers
-    return (0,0) # then return that row and column instead of (0,0)
+    row = int(input("Enter what row you would like to mark: ")) -1
+    col = int(input("Enter which column you would like to mark: ")) -1# prompt the user separately for the row and column numbers
+    return (row,col) # then return that row and column instead of (0,0)
 
 def hasBlanks(board):
 
@@ -48,8 +59,9 @@ def main():
             ,[0, 0, 0]
             ,[0, 0, 0]
         ] # TODO replace this with a three-by-three matrix of zeros
-    player = 1
+    player = 1 
     while hasBlanks(board):
+
         printBoard(board)
         row,col = getPlayerMove()
         markBoard(board,row,col,player)
