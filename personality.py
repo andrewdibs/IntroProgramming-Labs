@@ -5,12 +5,7 @@
 
 curEmotion = 3
 interaction = 0
-anger   = 0
-disgust = 1
-fear    = 2
-happy   = 3
-sadness = 4
-surprsie= 5
+
 
 def showIntro():
     print("\t\tPersonality Artificial Intelligence\n"
