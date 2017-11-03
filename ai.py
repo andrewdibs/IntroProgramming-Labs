@@ -11,15 +11,19 @@ happy   = 3
 sadness = 4
 surprsie= 5
 
+def showIntro():
+    print("\t\tPersonality Artificial Intelligence\n"
+          "\t\t===================================")
 
+    
 def getInteraction():
     while True:
         
         interaction = input("Enter interaction \n"
-                            "Reward\n "
-                            "Punish\n "
-                            "Threaten \n"
-                            "Joke \n"
+                            "Reward\n"
+                            "Punish\n"
+                            "Threaten\n"
+                            "Joke\n"
                             ">>: ").lower()
 
         if interaction == "reward":
@@ -33,4 +37,5 @@ def getInteraction():
 
         else:
             print("\nInvalid Command..\n")
-    
+showIntro()    
+getInteraction()
