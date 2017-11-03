@@ -3,7 +3,8 @@
 #Navigation Matrix
 
 
-currentEmotion = -1
+curEmotion = 0
+interaction = 0
 anger   = 0
 disgust = 1
 fear    = 2
@@ -37,5 +38,27 @@ def getInteraction():
 
         else:
             print("\nInvalid Command..\n")
-showIntro()    
-getInteraction()
+
+def lookupEmotion(curEmotion, interaction ):
+
+
+    matrix = [# reward  punish  threaten  joke
+                [1,     4,      5,        0] #anger     0 
+         ,      [3,     0,      0,        5] #disgust   1
+         ,      [3,     4,      1,        0] #fear      2
+         ,      [3,     4,      0,        5] #happiness 3
+         ,      [3,     0,      1,        0] #sadness   4
+         ,      [3,     4,      1,        3] #surprise  5
+
+        ]
+    return matrix[curEmotion][interaction]
+
+
+            
+showIntro()
+
+while True:
+    interaction = getInteraction()
+    curEmotion = lookupEmotion(curEmotion, interaction)
+    print(curEmotion)
+    
