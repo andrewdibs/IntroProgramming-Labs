@@ -20,6 +20,7 @@ def getInteraction():
                             "Punish\n"
                             "Threaten\n"
                             "Joke\n"
+                            "Quit\n"
                             ">>: ").lower()
 
         if interaction == "reward":
@@ -30,6 +31,8 @@ def getInteraction():
             return 2
         elif interaction == "joke":
             return 3
+        elif interaction == "quit":
+            return 4
 
         else:
             print("\nInvalid Command..\n")
@@ -61,14 +64,19 @@ def showEmotion(curEmotion):
         print(":,( " )
     elif curEmotion == 5:
         print("Wow!")
-    
+
+def conclusion():
+    print("Thanks for talking!")
             
 showIntro()
 
 while True:
     showEmotion(curEmotion)
     interaction = getInteraction()
+    if interaction == 4:
+        break
     curEmotion = lookupEmotion(curEmotion, interaction)
-    
+
+conclusion()
     
     
