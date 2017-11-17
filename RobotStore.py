@@ -3,6 +3,7 @@
 # 17 November 2017
 
 
+    
 productNames = [ "Ultrasonic range finder"
              , "Servo motor"
              , "Servo controller"
@@ -13,6 +14,27 @@ productNames = [ "Ultrasonic range finder"
 productPrices = [ 2.50, 14.99, 44.95, 34.95, 149.99, 8.99 ]
 
 productQuantities = [ 4, 10, 5, 7, 2, 8 ]
+
+class Product:
+    
+    def __init__(self, name, price, qty):
+        self.name = name
+        self.price = price
+        self.qty = qty
+
+    def inStock(self, count):
+        return count <= self.qty
+
+    def totalCost(self, count):
+        if inStock(count):
+            return count * self.price
+        else:
+            print("Item out of stock.\n")
+
+    def removeStock(self, count):
+
+        return self.quantity - count
+            
 
 def printStock():
     print()
@@ -31,7 +53,8 @@ def main():
 
         vals = input("Enter product ID and quantity you wish to buy: ").split(" ")
 
-        if vals[0] == "quit": break
+        if vals[0] == "quit":
+            break
 
     prodId = int(vals[0])
     count = int(vals[1])
