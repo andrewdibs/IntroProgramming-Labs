@@ -52,20 +52,21 @@ def main():
 
         if vals[0] == "quit":
             break
+        try:
+            prodId = int(vals[0])
+            count = int(vals[1])
 
-        prodId = int(vals[0])
-        count = int(vals[1])
-
-        if products[prodId].inStock(count):
-            if cash >= products[prodId].price:
-                products[prodId].removeStock(count)
-                cash -= products[prodId].totalCost(count)
-                print("You purchased", count, products[prodId].name+".")
-                print("You have $", "{0:.2f}".format(cash), "remaining.")
+            if products[prodId].inStock(count):
+                if cash >= products[prodId].price:
+                    products[prodId].removeStock(count)
+                    cash -= products[prodId].totalCost(count)
+                    print("You purchased", count, products[prodId].name+".")
+                    print("You have $", "{0:.2f}".format(cash), "remaining.")
+                else:
+                    print("Sorry, you cannot afford that product.")
             else:
-                print("Sorry, you cannot afford that product.")
-        else:
-            print("Sorry, we are sold out of", products[prodId].name)
-
+                print("Sorry, we are sold out of", products[prodId].name)
+        except:
+            print("invalid command")
 
 main()
