@@ -55,15 +55,22 @@ def main():
 
     showIntro()
 
+    
+
+    win = GraphWin("Arithmetic Engine", 400 , 300)
+    win.setCoords(0,0,10,10)
+
+    Text(Point(5,8), "Arithmetic Engine!!!").draw(win)
+    operationDisplay = Text(Point(5,5),"Add\nMulitply\nDivide\nSubtract").draw(win)
+    inputBox = Entry(Point(5,3),6)
+    inputBox.draw(win)
+
+
     while True:
 
-        win = GraphWin("Arithmetic Engine", 400 , 100)
-        win.setCoords(0,0,10,10)
-
-        Text(Point(5,8), "Arithmetic Engine!!!").draw(win)
-        
-        
+        while win.getKey() != "Return" : pass
         operation = getOperation()
+        operationDisplay.undraw()
         numbers = getInput()
 
         if operation == "add":
@@ -87,7 +94,7 @@ def main():
             quit()
         
 
-
+main()
 
 
         
