@@ -18,16 +18,21 @@ def showIntro():
           "Arithmetic engine allows user to perform basic operations on two numbers.")
 
 def getOperation():
+    while True:
+            
+        userInput = input("Please Choose operation:\n\n"
+                          "Add\n"
+                          "Multiply\n"
+                          "Subtract\n"
+                          "Divide\n"
+                          "Enter quit to exit\n"
+                          ">>: ").lower()
 
-    userInput = input("Please Choose operation:\n\n"
-                      "Add\n"
-                      "Multiply\n"
-                      "Subtract\n"
-                      "Divide\n"
-                      "Enter quit to exit\n"
-                      ">>: ").lower()
-
-    return userInput
+        if userInput != "add" or userInput != "multiply" or userInput != "subtract" or userInput != "divide":
+            Text(Point(5,2), "Invalid operation").draw(win)            
+        else:
+            
+            return userInput
                       
                       
 
@@ -69,21 +74,38 @@ def main():
     while True:
 
         while win.getKey() != "Return" : pass
-        operation = getOperation()
-        operationDisplay.undraw()
-        numbers = getInput()
+        
+            
+        operation = inputBox.getText()
+        
+        operationDisplay.setText("Enter First Number:")
+
+        while win.getKey() != "Return" : pass 
+        
+        num1 = float(inputBox.getText())
+
+        operationDisplay.setText("Enter Second Number: ")
+
+        while win.getKey() != "Return": pass
+
+        num2 = float(inputBox.getText())
+        
 
         if operation == "add":
-            print("Result = ", numbers[0] + numbers[1], "\n\n")
+            result = num1 + num2
+            operationDisplay.setText(str(num1) + " + " +str(num2)+ " = "+ str(result))
 
         elif operation == "subtract":
-            print("Result = ",numbers[0] - numbers[1],"\n\n")
+            result = num1 - num2
+            operationDisplay.setText(str(num1) + " - " +str(num2)+ " = "+ str(result))
 
         elif operation == "multiply":
-            print("Result = " , numbers[0]* numbers[1] , "\n\n")
+            result = num1 * num2
+            operationDisplay.setText(str(num1) + " X " +str(num2)+ " = "+ str(result))
 
         elif operation == "divide":
-            print("Result = ", numbers[0] / numbers[1] , "\n\n")
+            result = num1 / num2
+            operationDisplay.setText(str(num1) + " / " +str(num2)+ " = "+ str(result))
 
         elif operation == "quit":
             print("Thanks for using the Arithmetic Engine")
