@@ -10,6 +10,7 @@
 #show result 
 #
 
+from graphics import *
 
 def showIntro():
     print("\t\t\tArithmetic Engine\n"
@@ -43,10 +44,6 @@ def getInput():
         except:
             print("Invalid number...\n")
 
-        
-
-        
-            
     
     return nums
 
@@ -54,32 +51,40 @@ def showEnding():
     print("Thanks for using the Arithmetic Engine.")
 
 
-showIntro()
+def main():
 
-while True:
-    
-    operation = getOperation()
-    numbers = getInput()
+    showIntro()
 
-    if operation == "add":
-        print("Result = ", numbers[0] + numbers[1], "\n\n")
+    while True:
 
-    elif operation == "subtract":
-        print("Result = ",numbers[0] - numbers[1],"\n\n")
+        win = GraphWin("Arithmetic Engine", 400 , 100)
+        win.setCoords(0,0,10,10)
 
-    elif operation == "multiply":
-        print("Result = " , numbers[0]* numbers[1] , "\n\n")
+        Text(Point(5,8), "Arithmetic Engine!!!").draw(win)
+        
+        
+        operation = getOperation()
+        numbers = getInput()
 
-    elif operation == "divide":
-        print("Result = ", numbers[0] / numbers[1] , "\n\n")
+        if operation == "add":
+            print("Result = ", numbers[0] + numbers[1], "\n\n")
 
-    elif operation == "quit":
-        print("Thanks for using the Arithmetic Engine")
-        quit()
+        elif operation == "subtract":
+            print("Result = ",numbers[0] - numbers[1],"\n\n")
 
-    else:
-        print("Invalid Command")
-        quit()
+        elif operation == "multiply":
+            print("Result = " , numbers[0]* numbers[1] , "\n\n")
+
+        elif operation == "divide":
+            print("Result = ", numbers[0] / numbers[1] , "\n\n")
+
+        elif operation == "quit":
+            print("Thanks for using the Arithmetic Engine")
+            quit()
+
+        else:
+            print("Invalid Command")
+            quit()
         
 
 
