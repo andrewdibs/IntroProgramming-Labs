@@ -66,13 +66,15 @@ def main():
     win.setCoords(0,0,10,10)
 
     Text(Point(5,8), "Arithmetic Engine!!!").draw(win)
-    operationDisplay = Text(Point(5,5),"Add\nMulitply\nDivide\nSubtract").draw(win)
+    
     inputBox = Entry(Point(5,3),6)
     inputBox.draw(win)
-
+    resultDisplay = Text(Point(5,2),"").draw(win)
+    operationDisplay = Text(Point(5,5),"Add\nMulitply\nDivide\nSubtract").draw(win)
 
     while True:
 
+        operationDisplay.setText("Add\nMulitply\nDivide\nSubtract ")
         while win.getKey() != "Return" : pass
         
             
@@ -93,19 +95,19 @@ def main():
 
         if operation == "add":
             result = num1 + num2
-            operationDisplay.setText(str(num1) + " + " +str(num2)+ " = "+ str(result))
+            resultDisplay.setText(str(num1) + " + " +str(num2)+ " = "+ str(result))
 
         elif operation == "subtract":
             result = num1 - num2
-            operationDisplay.setText(str(num1) + " - " +str(num2)+ " = "+ str(result))
+            resultDisplay.setText(str(num1) + " - " +str(num2)+ " = "+ str(result))
 
         elif operation == "multiply":
             result = num1 * num2
-            operationDisplay.setText(str(num1) + " X " +str(num2)+ " = "+ str(result))
+            resultDisplay.setText(str(num1) + " X " +str(num2)+ " = "+ str(result))
 
         elif operation == "divide":
             result = num1 / num2
-            operationDisplay.setText(str(num1) + " / " +str(num2)+ " = "+ str(result))
+            resultDisplay.setText(str(num1) + " / " +str(num2)+ " = "+ str(result))
 
         elif operation == "quit":
             print("Thanks for using the Arithmetic Engine")
